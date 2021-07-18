@@ -1,0 +1,46 @@
+{
+  "name": "air_condition",
+  "version": "1.0.0",
+  "description": "Current air condition status based on meteo stations in Poland",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest",
+    "dev": "npx parcel index.html",
+    "build": "npx parcel build index.html"
+  },
+  "keywords": [
+    "weather",
+    "meteo",
+    "air condition",
+    "poland"
+  ],
+  "author": "Darek Mazur",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "babel-jest": "^27.0.6",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.0.1",
+    "prettier": "^2.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --config .prettierrc --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

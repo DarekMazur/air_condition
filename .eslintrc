@@ -1,0 +1,14 @@
+{
+  "import/resolver": {
+    "node": {
+      "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      "moduleDirectory": ["node_modules", "src/"]
+    }
+  },
+  "extends": ["airbnb", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  }
+}
