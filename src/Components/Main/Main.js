@@ -19,7 +19,7 @@ const Main = () => {
   //     renderElement('option', null, document.querySelector('.form__select'), station);
   //   }),
   // );
-  getStationsList();
+  console.log(getStationsList());
 };
 
 export default Main;
