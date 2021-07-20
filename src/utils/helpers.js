@@ -1,23 +1,44 @@
 import { constans } from './constans';
 
-const API_URL = `https://thingproxy.freeboard.io/fetch/${constans.API_URL}`;
+const proxy = 'https://thingproxy.freeboard.io/fetch/';
+const STATIONS_API_URL = `${proxy}${constans.STATIONS_API_URL}`;
+const API_URL = `${proxy}${constans.API_URL}`;
+
+const getStationSensores = fetch(STATIONS_API_URL)
+  .then((response) => response.json())
+  .then((data) => data)
+  .catch((error) => console.log(error));
 
 const getData = fetch(API_URL)
   .then((response) => response.json())
   .then((data) => data)
   .catch((error) => console.log(error));
 
-//TODO: get...List method: one method for all steps, add 'parent' prop;
+export const getApiData = async (children, parent, parentName) => {
+  const allData = await getData;
 
-export const getProvincesList = async () => {
-  const allProvincesData = await getData;
-  const provinces = [];
-  allProvincesData.forEach((province) =>
-    !provinces.includes(province.city.commune.provinceName)
-      ? provinces.push(province.city.commune.provinceName)
-      : null,
-  );
-  return provinces;
+  const data = [];
+  allData.forEach((element) => {
+    const stepElement = (input) => {
+      switch (input) {
+        case 'province':
+          return element.city.commune.provinceName;
+        case 'city':
+          return element.city.name;
+        case 'station':
+          return element.stationName;
+      }
+    };
+
+    if (parent) {
+      stepElement(parent) === parentName && !data.includes(stepElement(children))
+        ? data.push(stepElement(children))
+        : null;
+    } else {
+      !data.includes(stepElement(children)) ? data.push(stepElement(children)) : null;
+    }
+  });
+  return data;
 };
 
 export const getCitiesByProvince = async (province) => {
@@ -32,7 +53,6 @@ export const getCitiesByProvince = async (province) => {
 };
 
 export const renderElement = (tag, className, target, content) => {
-  //TODO: clasName as Array; if length = 0 then skip classList.add; if length = 1 then classList.add; if length > 1 then forEach classList.add
   const newElement = document.createElement(tag);
   if (className.length > 0) {
     className.forEach((singleClass) => newElement.classList.add(singleClass));

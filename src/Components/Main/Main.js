@@ -1,14 +1,30 @@
-import { getCitiesByProvince, renderElement } from '../../utils/helpers';
-import { getProvincesList } from '../../utils/helpers';
+import { getApiData, renderElement, getCitiesByProvince } from '../../utils/helpers';
 
 const Main = () => {
-  // const mainWrapper = document.createElement('main');
-  // const mainForm = document.createElement('form');
+  const selectValues = {
+    province: '',
+    city: '',
+    station: '',
+  };
 
-  // mainWrapper.classList.add('main__wrapper');
+  const renderCities = () => {
+    renderElement('option', [], document.querySelector('.selcet__city'), 'Choose your city:');
+    getApiData('city', 'province', selectValues.province).then((response) =>
+      response.map((province) => {
+        renderElement('option', [], document.querySelector('.selcet__city'), province);
+      }),
+    );
+  };
 
-  // document.querySelector('body').appendChild(mainWrapper);
-  // mainWrapper.appendChild(mainForm);
+  const renderStations = () => {
+    renderElement('option', [], document.querySelector('.selcet__station'), 'Choose station:');
+    getApiData('station', 'city', selectValues.city).then((response) =>
+      response.map((province) => {
+        renderElement('option', [], document.querySelector('.selcet__station'), province);
+      }),
+    );
+  };
+
   renderElement('main', ['main__wrapper'], document.querySelector('body'));
   renderElement('form', ['form__wrapper'], document.querySelector('.main__wrapper'));
   renderElement(
@@ -18,25 +34,45 @@ const Main = () => {
   );
 
   renderElement('option', [], document.querySelector('.selcet__province'), 'Choose your province:');
-  getProvincesList().then((response) =>
+  getApiData('province').then((response) =>
     response.map((province) => {
       renderElement('option', [], document.querySelector('.selcet__province'), province);
     }),
   );
-
   renderElement(
     'select',
     ['form__select', 'selcet__city'],
     document.querySelector('.form__wrapper'),
   );
-  renderElement('option', [], document.querySelector('.selcet__city'), 'Choose your city:');
-  getCitiesByProvince('ŚWIĘTOKRZYSKIE').then((response) =>
-    response.map((city) => {
-      renderElement('option', [], document.querySelector('.selcet__city'), city);
-    }),
+  renderCities();
+
+  document
+    .querySelector('.selcet__province')
+    .addEventListener('change', (e) => console.log(e.target.value));
+
+  renderElement(
+    'select',
+    ['form__select', 'selcet__station'],
+    document.querySelector('.form__wrapper'),
   );
 
-  // console.log(getCitiesByProvince('ŚWIĘTOKRZYSKIE'));
+  renderStations();
+
+  const selectProvince = document.querySelector('.selcet__province');
+  const selectCity = document.querySelector('.selcet__city');
+  const selectStation = document.querySelector('.selcet__station');
+
+  selectProvince.addEventListener('change', (e) => {
+    e.target.value !== 'Choose your province:' ? (selectValues.province = e.target.value) : null;
+    selectCity.innerHTML = '';
+    renderCities();
+  });
+
+  selectCity.addEventListener('change', (e) => {
+    e.target.value !== 'Choose your city:' ? (selectValues.city = e.target.value) : null;
+    selectStation.innerHTML = '';
+    renderStations();
+  });
 };
 
 export default Main;
