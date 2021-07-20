@@ -4,15 +4,26 @@ const proxy = 'https://thingproxy.freeboard.io/fetch/';
 const STATIONS_API_URL = `${proxy}${constans.STATIONS_API_URL}`;
 const API_URL = `${proxy}${constans.API_URL}`;
 
-const getStationSensores = fetch(STATIONS_API_URL)
-  .then((response) => response.json())
-  .then((data) => data)
-  .catch((error) => console.log(error));
+const getStationSensores = (station) => {
+  const stationApi = `${STATIONS_API_URL}${station}`;
+  const data = fetch(stationApi)
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((error) => console.log(error));
+
+  return data;
+};
 
 const getData = fetch(API_URL)
   .then((response) => response.json())
   .then((data) => data)
   .catch((error) => console.log(error));
+
+export const getStationData = async (station) => {
+  const stationDataJson = await getStationSensores(station);
+  console.log(stationDataJson);
+  // stationDataJson.forEach((station) => console.log(station));
+};
 
 export const getApiData = async (children, parent, parentName) => {
   const allData = await getData;

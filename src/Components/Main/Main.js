@@ -1,4 +1,9 @@
-import { getApiData, renderElement, getCitiesByProvince } from '../../utils/helpers';
+import {
+  getApiData,
+  renderElement,
+  getCitiesByProvince,
+  getStationData,
+} from '../../utils/helpers';
 
 const Main = () => {
   const selectValues = {
@@ -74,5 +79,7 @@ const Main = () => {
     renderStations();
   });
 };
+
+getStationData('52');
 
 export default Main;
