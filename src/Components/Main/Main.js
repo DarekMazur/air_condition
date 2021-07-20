@@ -1,9 +1,4 @@
-import {
-  getApiData,
-  renderElement,
-  getCitiesByProvince,
-  getStationData,
-} from '../../utils/helpers';
+import { getApiData, getStationData, renderElement, renderResuts } from '../../utils/helpers';
 
 const Main = () => {
   const selectValues = {
@@ -51,10 +46,6 @@ const Main = () => {
   );
   renderCities();
 
-  document
-    .querySelector('.selcet__province')
-    .addEventListener('change', (e) => console.log(e.target.value));
-
   renderElement(
     'select',
     ['form__select', 'selcet__station'],
@@ -62,6 +53,8 @@ const Main = () => {
   );
 
   renderStations();
+
+  renderElement('section', ['quality__wrapper'], document.querySelector('.main__wrapper'));
 
   const selectProvince = document.querySelector('.selcet__province');
   const selectCity = document.querySelector('.selcet__city');
@@ -78,8 +71,18 @@ const Main = () => {
     selectStation.innerHTML = '';
     renderStations();
   });
-};
 
-getStationData('52');
+  selectStation.addEventListener('change', (e) => {
+    e.target.value !== 'Choose station:'
+      ? ((selectValues.station = e.target.value),
+        (document.querySelector('.quality__wrapper').innerHTML = ''),
+        getApiData('sensor', 'station', selectValues.station)
+          .then((resolve) => getStationData(resolve))
+          .then((data) => {
+            renderResuts(data, selectValues.station);
+          }))
+      : null;
+  });
+};
 
 export default Main;
