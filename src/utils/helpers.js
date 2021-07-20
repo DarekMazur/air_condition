@@ -52,17 +52,6 @@ export const getApiData = async (children, parent, parentName) => {
   return data;
 };
 
-export const getCitiesByProvince = async (province) => {
-  const allCitiesData = await getData;
-  const cities = [];
-  allCitiesData.forEach((city) =>
-    !cities.includes(city.city.name) && city.city.commune.provinceName === province
-      ? cities.push(city.city.name)
-      : null,
-  );
-  return cities;
-};
-
 export const renderElement = (tag, className, target, content) => {
   const newElement = document.createElement(tag);
   if (className.length > 0) {
