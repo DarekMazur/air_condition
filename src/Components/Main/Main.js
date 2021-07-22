@@ -1,4 +1,10 @@
-import { getApiData, getStationData, renderElement, renderResuts } from '../../utils/helpers';
+import {
+  getApiData,
+  getStationData,
+  renderElement,
+  renderResuts,
+  getGeo,
+} from '../../utils/helpers';
 
 const Main = () => {
   const selectValues = {
@@ -26,6 +32,13 @@ const Main = () => {
   };
 
   renderElement('main', ['main__wrapper'], document.querySelector('body'));
+  renderElement('div', ['geolocation__wrapper'], document.querySelector('.main__wrapper'));
+  renderElement(
+    'button',
+    ['geolocation__button'],
+    document.querySelector('.geolocation__wrapper'),
+    'Check your location',
+  );
   renderElement('form', ['form__wrapper'], document.querySelector('.main__wrapper'));
   renderElement(
     'select',
@@ -59,6 +72,12 @@ const Main = () => {
   const selectProvince = document.querySelector('.selcet__province');
   const selectCity = document.querySelector('.selcet__city');
   const selectStation = document.querySelector('.selcet__station');
+  const geolocationButton = document.querySelector('.geolocation__button');
+
+  geolocationButton.addEventListener('click', async () => {
+    const devicePositionDetails = await getGeo;
+    console.log(devicePositionDetails);
+  });
 
   selectProvince.addEventListener('change', (e) => {
     e.target.value !== 'Choose your province:' ? (selectValues.province = e.target.value) : null;
@@ -83,6 +102,10 @@ const Main = () => {
           }))
       : null;
   });
+
+  // navigator.geolocation.getCurrentPosition((position) =>
+  //   console.log(`Your position: ${position.coords.latitude}, ${position.coords.longitude}`),
+  // );
 };
 
 export default Main;

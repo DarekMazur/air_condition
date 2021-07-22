@@ -125,3 +125,7 @@ export const renderResuts = (stationData, stationName) => {
     );
   });
 };
+
+export const getGeo = new Promise((resolve) => {
+  navigator.geolocation.getCurrentPosition((position) => resolve(position.coords));
+}).then((data) => data);
