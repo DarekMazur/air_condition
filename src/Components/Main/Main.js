@@ -3,7 +3,7 @@ import {
   getStationData,
   renderElement,
   renderResuts,
-  getGeo,
+  getClosestStation,
 } from '../../utils/helpers';
 
 const Main = () => {
@@ -74,10 +74,7 @@ const Main = () => {
   const selectStation = document.querySelector('.selcet__station');
   const geolocationButton = document.querySelector('.geolocation__button');
 
-  geolocationButton.addEventListener('click', async () => {
-    const devicePositionDetails = await getGeo;
-    console.log(devicePositionDetails);
-  });
+  geolocationButton.addEventListener('click', () => getClosestStation());
 
   selectProvince.addEventListener('change', (e) => {
     e.target.value !== 'Choose your province:' ? (selectValues.province = e.target.value) : null;
