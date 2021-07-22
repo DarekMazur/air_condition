@@ -126,9 +126,10 @@ export const renderResuts = (stationData, stationName) => {
   });
 };
 
-const getGeo = new Promise((resolve) => {
-  navigator.geolocation.getCurrentPosition((position) => resolve(position.coords));
-}).then((data) => getDistance(data.latitude, data.longitude));
+const getGeo = () =>
+  new Promise((resolve) => {
+    navigator.geolocation.getCurrentPosition((position) => resolve(position.coords));
+  }).then((data) => getDistance(data.latitude, data.longitude));
 
 const calculateDistance = (
   currentLat,
@@ -180,7 +181,7 @@ const getDistance = async (currentLat, currentLong) => {
 
 export const getClosestStation = async () => {
   document.querySelector('.quality__wrapper').innerHTML = '';
-  const deviceDistanceToStations = await getGeo;
+  const deviceDistanceToStations = await getGeo();
   deviceDistanceToStations.sort((a, b) => a.distance - b.distance);
   getStationData(deviceDistanceToStations[0].id).then((data) => {
     renderResuts(data, deviceDistanceToStations[0].name);

@@ -74,7 +74,7 @@ const Main = () => {
   const selectStation = document.querySelector('.selcet__station');
   const geolocationButton = document.querySelector('.geolocation__button');
 
-  geolocationButton.addEventListener('click', () => getClosestStation());
+  geolocationButton.addEventListener('click', getClosestStation);
 
   selectProvince.addEventListener('change', (e) => {
     e.target.value !== 'Choose your province:' ? (selectValues.province = e.target.value) : null;
@@ -99,10 +99,6 @@ const Main = () => {
           }))
       : null;
   });
-
-  // navigator.geolocation.getCurrentPosition((position) =>
-  //   console.log(`Your position: ${position.coords.latitude}, ${position.coords.longitude}`),
-  // );
 };
 
 export default Main;
