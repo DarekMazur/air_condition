@@ -1,10 +1,8 @@
-import {
-  getApiData,
-  getStationData,
-  renderElement,
-  renderResuts,
-  getClosestStation,
-} from '../../utils/helpers';
+import { getApiData } from '../../Helpers/getApiData';
+import { getStationData } from '../../Helpers/getStationData';
+import { renderElement } from '../../Helpers/renderElement';
+import { renderResuts } from '../../Helpers/renderResuts';
+import { getClosestStation } from '../../Helpers/getClosestStation';
 
 const Main = () => {
   const selectValues = {
