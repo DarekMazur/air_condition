@@ -40,6 +40,13 @@ export const renderResuts = (stationData, stationName) => {
     `Stacja pomiarowa ${stationName}`,
   );
 
+  renderElement(
+    'h3',
+    ['quality__location'],
+    document.querySelector('.quality__wrapper'),
+    `Data pomiaru: ${stationData.stSourceDataDate}`,
+  );
+
   airQualityParams.map((param) => {
     renderElement(
       'div',

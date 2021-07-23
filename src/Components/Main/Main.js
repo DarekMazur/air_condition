@@ -6,8 +6,6 @@ import { getClosestStation } from '../../Helpers/getClosestStation';
 import { renderSelect } from '../../Helpers/renderSelect';
 import { handleSelect } from '../../Helpers/handleSelect';
 
-//TODO refactor
-
 const Main = () => {
   const selectValues = {
     province: '',
