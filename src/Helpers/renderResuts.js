@@ -1,3 +1,4 @@
+import { Button } from '../Components/Button/Button';
 import { renderElement } from './renderElement';
 
 export const renderResuts = (stationData, stationName) => {
@@ -66,4 +67,10 @@ export const renderResuts = (stationData, stationName) => {
       `Status: ${param.status === undefined ? 'Brak danych' : param.status}`,
     );
   });
+  // Button('reset');
+  // document.querySelector('.reset__button').classList.remove('reset__button--inactive');
+
+  // document
+  //   .querySelector('.reset__button')
+  //   .addEventListener('click', (e) => console.log(`e.target`));
 };

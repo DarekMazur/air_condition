@@ -6,6 +6,8 @@ import { getClosestStation } from '../../Helpers/getClosestStation';
 import { renderSelect } from '../../Helpers/renderSelect';
 import { handleSelect } from '../../Helpers/handleSelect';
 import { Loader } from '../Loader/Loader';
+import { Button } from '../Button/Button';
+import { resetSelect } from '../../Helpers/resetSelect';
 
 const Main = () => {
   const selectValues = {
@@ -16,12 +18,9 @@ const Main = () => {
 
   renderElement('main', ['main__wrapper'], document.querySelector('body'));
   renderElement('div', ['geolocation__wrapper'], document.querySelector('.main__wrapper'));
-  renderElement(
-    'button',
-    ['geolocation__button'],
-    document.querySelector('.geolocation__wrapper'),
-    'Check your location',
-  );
+
+  Button('geo');
+
   renderElement('form', ['form__wrapper'], document.querySelector('.main__wrapper'));
   renderElement(
     'select',
@@ -74,6 +73,9 @@ const Main = () => {
           }))
       : null;
   });
+
+  Button('reset');
+  document.querySelector('.reset__button').addEventListener('click', () => resetSelect());
 };
 
 export default Main;

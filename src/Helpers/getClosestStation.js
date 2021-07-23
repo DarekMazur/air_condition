@@ -1,4 +1,5 @@
 import { Loader } from '../Components/Loader/Loader';
+import { resetSelect } from '../Helpers/resetSelect';
 import { getData } from './getData';
 import { getStationData } from './getStationData';
 import { renderResuts } from './renderResuts';
@@ -57,7 +58,6 @@ const getDistance = async (currentLat, currentLong) => {
 };
 
 export const getClosestStation = async () => {
-  document.querySelectorAll('.form__select').forEach((select) => (select.selectedIndex = '0'));
   Loader();
   const deviceDistanceToStations = await getGeo();
   deviceDistanceToStations.sort((a, b) => a.distance - b.distance);
@@ -65,4 +65,5 @@ export const getClosestStation = async () => {
   getStationData(deviceDistanceToStations[0].id).then((data) => {
     renderResuts(data, deviceDistanceToStations[0].name);
   });
+  document.querySelector('.reset__button').classList.remove('reset__button--inactive');
 };
