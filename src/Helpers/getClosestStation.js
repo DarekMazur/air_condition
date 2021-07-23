@@ -1,5 +1,4 @@
 import { Loader } from '../Components/Loader/Loader';
-import { resetSelect } from '../Helpers/resetSelect';
 import { getData } from './getData';
 import { getStationData } from './getStationData';
 import { renderResuts } from './renderResuts';
