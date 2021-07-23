@@ -1,6 +1,7 @@
 import { getApiData } from '../../Helpers/getApiData';
 import { getStationData } from '../../Helpers/getStationData';
 import { handleSelect } from '../../Helpers/handleSelect';
+import { hasError } from '../../Helpers/hasError';
 import { renderElement } from '../../Helpers/renderElement';
 import { renderResuts } from '../../Helpers/renderResuts';
 import { renderSelect } from '../../Helpers/renderSelect';
@@ -21,11 +22,16 @@ export const Form = () => {
   );
 
   renderElement('option', [], document.querySelector('.select__province'), 'Choose your province:');
-  getApiData('province').then((response) =>
-    response.map((province) => {
-      renderElement('option', [], document.querySelector('.select__province'), province);
-    }),
-  );
+  getApiData('province').then((response) => {
+    try {
+      response.map((province) => {
+        renderElement('option', [], document.querySelector('.select__province'), province);
+      });
+    } catch {
+      hasError();
+    }
+  });
+
   renderElement(
     'select',
     ['form__select', 'select__city', 'select__city--inactive'],
@@ -40,8 +46,6 @@ export const Form = () => {
 
   renderSelect('city', 'province', selectValues.province);
   renderSelect('station', 'city', selectValues.city);
-
-  renderElement('section', ['quality__wrapper'], document.querySelector('.main__wrapper'));
 
   document
     .querySelector('.select__province')

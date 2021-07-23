@@ -1,12 +1,15 @@
 import { Loader } from '../Components/Loader/Loader';
 import { getData } from './getData';
 import { getStationData } from './getStationData';
+import { hasError } from './hasError';
 import { renderResuts } from './renderResuts';
 
 const getGeo = () =>
   new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition((position) => resolve(position.coords));
-  }).then((data) => getDistance(data.latitude, data.longitude));
+  })
+    .then((data) => getDistance(data.latitude, data.longitude))
+    .catch(hasError());
 
 const calculateDistance = (
   currentLat,
@@ -41,28 +44,37 @@ const distanceToStations = [];
 
 const getDistance = async (currentLat, currentLong) => {
   const stations = await getData;
-  stations.forEach((stationDistance) =>
-    distanceToStations.push(
-      calculateDistance(
-        currentLat,
-        currentLong,
-        stationDistance.gegrLat,
-        stationDistance.gegrLon,
-        stationDistance.id,
-        stationDistance.stationName,
+  try {
+    stations.forEach((stationDistance) =>
+      distanceToStations.push(
+        calculateDistance(
+          currentLat,
+          currentLong,
+          stationDistance.gegrLat,
+          stationDistance.gegrLon,
+          stationDistance.id,
+          stationDistance.stationName,
+        ),
       ),
-    ),
-  );
+    );
+  } catch {
+    hasError();
+  }
+
   return distanceToStations;
 };
 
 export const getClosestStation = async () => {
   Loader();
   const deviceDistanceToStations = await getGeo();
-  deviceDistanceToStations.sort((a, b) => a.distance - b.distance);
-  document.querySelector('.quality__wrapper').innerHTML = '';
-  getStationData(deviceDistanceToStations[0].id).then((data) => {
-    renderResuts(data, deviceDistanceToStations[0].name);
-  });
-  document.querySelector('.reset__button').classList.remove('reset__button--inactive');
+  try {
+    deviceDistanceToStations.sort((a, b) => a.distance - b.distance);
+    document.querySelector('.quality__wrapper').innerHTML = '';
+    getStationData(deviceDistanceToStations[0].id).then((data) => {
+      renderResuts(data, deviceDistanceToStations[0].name);
+    });
+    document.querySelector('.reset__button').classList.remove('reset__button--inactive');
+  } catch {
+    hasError();
+  }
 };

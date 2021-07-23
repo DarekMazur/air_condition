@@ -6,11 +6,11 @@ import { Form } from '../Form/Form';
 
 const Main = () => {
   renderElement('main', ['main__wrapper'], document.querySelector('body'));
-
   renderElement('div', ['geolocation__wrapper'], document.querySelector('.main__wrapper'));
 
   Button('geo');
   Form();
+  renderElement('section', ['quality__wrapper'], document.querySelector('.main__wrapper'));
   Button('reset');
 
   document.querySelector('.geolocation__button').addEventListener('click', getClosestStation);
