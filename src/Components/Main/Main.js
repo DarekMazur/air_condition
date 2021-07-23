@@ -3,30 +3,16 @@ import { getStationData } from '../../Helpers/getStationData';
 import { renderElement } from '../../Helpers/renderElement';
 import { renderResuts } from '../../Helpers/renderResuts';
 import { getClosestStation } from '../../Helpers/getClosestStation';
+import { renderSelect } from '../../Helpers/renderSelect';
+import { handleSelect } from '../../Helpers/handleSelect';
+
+//TODO refactor
 
 const Main = () => {
   const selectValues = {
     province: '',
     city: '',
     station: '',
-  };
-
-  const renderCities = () => {
-    renderElement('option', [], document.querySelector('.selcet__city'), 'Choose your city:');
-    getApiData('city', 'province', selectValues.province).then((response) =>
-      response.map((province) => {
-        renderElement('option', [], document.querySelector('.selcet__city'), province);
-      }),
-    );
-  };
-
-  const renderStations = () => {
-    renderElement('option', [], document.querySelector('.selcet__station'), 'Choose station:');
-    getApiData('station', 'city', selectValues.city).then((response) =>
-      response.map((province) => {
-        renderElement('option', [], document.querySelector('.selcet__station'), province);
-      }),
-    );
   };
 
   renderElement('main', ['main__wrapper'], document.querySelector('body'));
@@ -40,53 +26,44 @@ const Main = () => {
   renderElement('form', ['form__wrapper'], document.querySelector('.main__wrapper'));
   renderElement(
     'select',
-    ['form__select', 'selcet__province'],
+    ['form__select', 'select__province'],
     document.querySelector('.form__wrapper'),
   );
 
-  renderElement('option', [], document.querySelector('.selcet__province'), 'Choose your province:');
+  renderElement('option', [], document.querySelector('.select__province'), 'Choose your province:');
   getApiData('province').then((response) =>
     response.map((province) => {
-      renderElement('option', [], document.querySelector('.selcet__province'), province);
+      renderElement('option', [], document.querySelector('.select__province'), province);
     }),
   );
   renderElement(
     'select',
-    ['form__select', 'selcet__city'],
+    ['form__select', 'select__city', 'select__city--inactive'],
     document.querySelector('.form__wrapper'),
   );
-  renderCities();
+  renderSelect('city', 'province', selectValues.province);
 
   renderElement(
     'select',
-    ['form__select', 'selcet__station'],
+    ['form__select', 'select__station', 'select__station--inactive'],
     document.querySelector('.form__wrapper'),
   );
 
-  renderStations();
+  renderSelect('station', 'city', selectValues.city);
 
   renderElement('section', ['quality__wrapper'], document.querySelector('.main__wrapper'));
 
-  const selectProvince = document.querySelector('.selcet__province');
-  const selectCity = document.querySelector('.selcet__city');
-  const selectStation = document.querySelector('.selcet__station');
-  const geolocationButton = document.querySelector('.geolocation__button');
+  document.querySelector('.geolocation__button').addEventListener('click', getClosestStation);
 
-  geolocationButton.addEventListener('click', getClosestStation);
+  document
+    .querySelector('.select__province')
+    .addEventListener('change', handleSelect('province', 'city', selectValues.province));
 
-  selectProvince.addEventListener('change', (e) => {
-    e.target.value !== 'Choose your province:' ? (selectValues.province = e.target.value) : null;
-    selectCity.innerHTML = '';
-    renderCities();
-  });
+  document
+    .querySelector('.select__city')
+    .addEventListener('change', handleSelect('city', 'station', selectValues.city));
 
-  selectCity.addEventListener('change', (e) => {
-    e.target.value !== 'Choose your city:' ? (selectValues.city = e.target.value) : null;
-    selectStation.innerHTML = '';
-    renderStations();
-  });
-
-  selectStation.addEventListener('change', (e) => {
+  document.querySelector('.select__station').addEventListener('change', (e) => {
     e.target.value !== 'Choose station:'
       ? ((selectValues.station = e.target.value),
         (document.querySelector('.quality__wrapper').innerHTML = ''),
