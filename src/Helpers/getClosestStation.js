@@ -1,3 +1,4 @@
+import { Loader } from '../Components/Loader/Loader';
 import { getData } from './getData';
 import { getStationData } from './getStationData';
 import { renderResuts } from './renderResuts';
@@ -56,9 +57,11 @@ const getDistance = async (currentLat, currentLong) => {
 };
 
 export const getClosestStation = async () => {
-  document.querySelector('.quality__wrapper').innerHTML = '';
+  document.querySelectorAll('.form__select').forEach((select) => (select.selectedIndex = '0'));
+  Loader();
   const deviceDistanceToStations = await getGeo();
   deviceDistanceToStations.sort((a, b) => a.distance - b.distance);
+  document.querySelector('.quality__wrapper').innerHTML = '';
   getStationData(deviceDistanceToStations[0].id).then((data) => {
     renderResuts(data, deviceDistanceToStations[0].name);
   });

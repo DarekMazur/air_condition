@@ -5,6 +5,7 @@ import { renderResuts } from '../../Helpers/renderResuts';
 import { getClosestStation } from '../../Helpers/getClosestStation';
 import { renderSelect } from '../../Helpers/renderSelect';
 import { handleSelect } from '../../Helpers/handleSelect';
+import { Loader } from '../Loader/Loader';
 
 const Main = () => {
   const selectValues = {
@@ -39,7 +40,6 @@ const Main = () => {
     ['form__select', 'select__city', 'select__city--inactive'],
     document.querySelector('.form__wrapper'),
   );
-  renderSelect('city', 'province', selectValues.province);
 
   renderElement(
     'select',
@@ -47,6 +47,7 @@ const Main = () => {
     document.querySelector('.form__wrapper'),
   );
 
+  renderSelect('city', 'province', selectValues.province);
   renderSelect('station', 'city', selectValues.city);
 
   renderElement('section', ['quality__wrapper'], document.querySelector('.main__wrapper'));
@@ -64,11 +65,12 @@ const Main = () => {
   document.querySelector('.select__station').addEventListener('change', (e) => {
     e.target.value !== 'Choose station:'
       ? ((selectValues.station = e.target.value),
-        (document.querySelector('.quality__wrapper').innerHTML = ''),
+        Loader(),
         getApiData('sensor', 'station', selectValues.station)
           .then((resolve) => getStationData(resolve))
           .then((data) => {
-            renderResuts(data, selectValues.station);
+            (document.querySelector('.quality__wrapper').innerHTML = ''),
+              renderResuts(data, selectValues.station);
           }))
       : null;
   });
