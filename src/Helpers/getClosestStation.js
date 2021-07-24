@@ -7,9 +7,7 @@ import { renderResuts } from './renderResuts';
 const getGeo = () =>
   new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition((position) => resolve(position.coords));
-  })
-    .then((data) => getDistance(data.latitude, data.longitude))
-    .catch(hasError());
+  }).then((data) => getDistance(data.latitude, data.longitude));
 
 const calculateDistance = (
   currentLat,
@@ -66,6 +64,13 @@ const getDistance = async (currentLat, currentLong) => {
 
 export const getClosestStation = async () => {
   Loader();
+
+  navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
+    if (result.state == 'denied') {
+      hasError(`Can't get your location. Please check device setup and turn geolocation on.`);
+    }
+  });
+
   const deviceDistanceToStations = await getGeo();
   try {
     deviceDistanceToStations.sort((a, b) => a.distance - b.distance);
