@@ -28,8 +28,9 @@ export const getApiData = async (children, parent, parentName) => {
         !data.includes(stepElement(children)) ? data.push(stepElement(children)) : null;
       }
     });
-  } catch {
+  } catch (err) {
     hasError();
+    console.log(err);
   }
 
   return data;

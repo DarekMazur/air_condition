@@ -27,8 +27,9 @@ export const Form = () => {
       response.map((province) => {
         renderElement('option', [], document.querySelector('.select__province'), province);
       });
-    } catch {
+    } catch (err) {
       hasError();
+      console.log(err);
     }
   });
 

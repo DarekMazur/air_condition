@@ -6,6 +6,8 @@ export const constans = {
 
 export const language = {
   EN: {
+    langName: 'english',
+    langShortName: 'en',
     so2: 'Sulphur dioxide',
     no2: 'Nitrogen dioxide',
     o3: 'Ozone',
@@ -16,6 +18,8 @@ export const language = {
     noData: 'No data',
   },
   PL: {
+    langName: 'polski',
+    langShortName: 'pl',
     so2: 'Dwutlenek siarki',
     no2: 'Dwutlenek azotu',
     o3: 'Ozon',

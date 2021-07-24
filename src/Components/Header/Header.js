@@ -1,13 +1,27 @@
+import { renderElement } from '../../Helpers/renderElement';
+import setLanguage from '../../Helpers/setLanguage';
+import { language } from '../../utils/constans';
+
 const Header = () => {
-  const headerWrapper = document.createElement('header');
-  headerWrapper.classList.add('header');
+  renderElement('header', ['header'], document.querySelector('body'));
+  renderElement('h1', ['header__title'], document.querySelector('.header'), 'Lorem Ipsum');
+  renderElement('div', ['header__languageWrapper'], document.querySelector('.header'));
 
-  const headerTitle = document.createElement('h1');
-  headerTitle.classList.add('header__title');
-  headerTitle.innerHTML = 'Lorem Ipsum';
+  Object.entries(language).forEach((lang) =>
+    renderElement(
+      'button',
+      ['language__button', `language__${lang[1].langShortName}`],
+      document.querySelector('.header__languageWrapper'),
+      lang[1].langShortName,
+    ),
+  );
 
-  document.querySelector('body').appendChild(headerWrapper);
-  headerWrapper.appendChild(headerTitle);
+  document.querySelectorAll('.language__button').forEach((languageButton) => {
+    if (languageButton.innerHTML.toUpperCase() === window.localStorage.lang) {
+      languageButton.classList.add('language__button--active');
+    }
+    languageButton.addEventListener('click', (e) => setLanguage(e));
+  });
 };
 
 export default Header;

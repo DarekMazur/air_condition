@@ -55,8 +55,9 @@ const getDistance = async (currentLat, currentLong) => {
         ),
       ),
     );
-  } catch {
+  } catch (err) {
     hasError();
+    console.log(err);
   }
 
   return distanceToStations;
@@ -79,7 +80,8 @@ export const getClosestStation = async () => {
       renderResuts(data, deviceDistanceToStations[0].name);
     });
     document.querySelector('.reset__button').classList.remove('reset__button--inactive');
-  } catch {
+  } catch (err) {
     hasError();
+    console.log(err);
   }
 };

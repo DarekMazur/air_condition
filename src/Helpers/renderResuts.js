@@ -73,7 +73,8 @@ export const renderResuts = (stationData, stationName) => {
         }`,
       );
     });
-  } catch {
+  } catch (err) {
     hasError();
+    console.log(err);
   }
 };
