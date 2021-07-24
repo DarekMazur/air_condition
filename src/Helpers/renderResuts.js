@@ -1,6 +1,8 @@
 import { hasError } from './hasError';
 import { renderElement } from './renderElement';
 
+import { language } from '../utils/constans';
+
 export const renderResuts = (stationData, stationName) => {
   try {
     const airQualityParams = [
@@ -8,31 +10,31 @@ export const renderResuts = (stationData, stationName) => {
         id: 'so2',
         index: stationData.so2IndexLevel?.id,
         status: stationData.so2IndexLevel?.indexLevelName,
-        name: 'Dwutlenek siarki',
+        name: language[window.localStorage.lang].so2,
       },
       {
         id: 'no2',
         index: stationData.no2IndexLevel?.id,
         status: stationData.no2IndexLevel?.indexLevelName,
-        name: 'Dwutlenek azotu',
+        name: language[window.localStorage.lang].no2,
       },
       {
         id: 'o3',
         index: stationData.o3IndexLevel?.id,
         status: stationData.o3IndexLevel?.indexLevelName,
-        name: 'Ozon',
+        name: language[window.localStorage.lang].o3,
       },
       {
         id: 'pm25',
         index: stationData.pm25IndexLevel?.id,
         status: stationData.pm25IndexLevel?.indexLevelName,
-        name: 'Areozole atmosferyczne (PM2.5)',
+        name: language[window.localStorage.lang].pm25,
       },
       {
         id: 'pm10',
         index: stationData.pm10IndexLevel?.id,
         status: stationData.pm10IndexLevel?.indexLevelName,
-        name: 'Pył zawieszony (PM10)',
+        name: language[window.localStorage.lang].pm10,
       },
     ];
 
@@ -40,14 +42,14 @@ export const renderResuts = (stationData, stationName) => {
       'h2',
       ['quality__location'],
       document.querySelector('.quality__wrapper'),
-      `Stacja pomiarowa ${stationName}`,
+      `${language[window.localStorage.lang].sationHeader} ${stationName}`,
     );
 
     renderElement(
       'h3',
       ['quality__location'],
       document.querySelector('.quality__wrapper'),
-      `Data pomiaru: ${stationData.stSourceDataDate}`,
+      `${language[window.localStorage.lang].stationTime}: ${stationData.stSourceDataDate}`,
     );
 
     airQualityParams.map((param) => {
@@ -66,7 +68,9 @@ export const renderResuts = (stationData, stationName) => {
         'p',
         [`.${param.id}__status`],
         document.querySelector(`.${param.id}`),
-        `Status: ${param.status === undefined ? 'Brak danych' : param.status}`,
+        `Status: ${
+          param.status === undefined ? language[window.localStorage.lang].noData : param.status
+        }`,
       );
     });
   } catch {
