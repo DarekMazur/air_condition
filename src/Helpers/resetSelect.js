@@ -1,3 +1,4 @@
+import { language } from '../utils/constans';
 import { renderElement } from './renderElement';
 
 export const resetSelect = () =>
@@ -9,7 +10,7 @@ export const resetSelect = () =>
         'option',
         [],
         document.querySelector(`.select__${option}`),
-        `Choose ${option === 'city' ? 'your city' : option}:`,
+        language[window.localStorage.lang][option],
       );
     }
     select.selectedIndex = '0';
