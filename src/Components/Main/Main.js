@@ -18,6 +18,8 @@ const Main = () => {
   renderElement('section', ['quality__wrapper'], document.querySelector('.main__wrapper'));
   Button('reset');
 
+  document.querySelector('.reset__button').disabled = true;
+
   document.querySelector('.geolocation__button').addEventListener('click', getClosestStation);
   document.querySelector('.reset__button').addEventListener('click', () => resetSelect());
 };
