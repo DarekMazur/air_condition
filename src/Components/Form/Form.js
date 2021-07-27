@@ -5,6 +5,7 @@ import { hasError } from '../../Helpers/hasError';
 import { renderElement } from '../../Helpers/renderElement';
 import { renderResuts } from '../../Helpers/renderResuts';
 import { renderSelect } from '../../Helpers/renderSelect';
+import { language } from '../../utils/constans';
 import { Loader } from '../Loader/Loader';
 
 export const Form = () => {
@@ -21,7 +22,12 @@ export const Form = () => {
     document.querySelector('.form__wrapper'),
   );
 
-  renderElement('option', [], document.querySelector('.select__province'), 'Choose your province:');
+  renderElement(
+    'option',
+    [],
+    document.querySelector('.select__province'),
+    language[window.localStorage.lang].province,
+  );
   getApiData('province').then((response) => {
     try {
       response.map((province) => {

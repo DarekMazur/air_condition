@@ -1,3 +1,4 @@
+import { language } from '../utils/constans';
 import { getApiData } from './getApiData';
 import { hasError } from './hasError';
 import { renderElement } from './renderElement';
@@ -7,7 +8,7 @@ export const renderSelect = (childern, parent, value) => {
     'option',
     [],
     document.querySelector(`.select__${childern}`),
-    `Choose ${childern === 'city' ? 'your city' : childern}:`,
+    language[window.localStorage.lang][childern],
   );
 
   getApiData(childern, parent, value).then((response) => {
