@@ -80,6 +80,7 @@ export const getClosestStation = async () => {
       renderResuts(data, deviceDistanceToStations[0].name);
     });
     document.querySelector('.reset__button').classList.remove('reset__button--inactive');
+    document.querySelector('.reset__button').style.disabled = false;
   } catch (err) {
     hasError();
     console.log(err);

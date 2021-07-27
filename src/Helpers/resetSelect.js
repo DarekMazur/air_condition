@@ -15,4 +15,5 @@ export const resetSelect = () =>
     select.selectedIndex = '0';
     document.querySelector('.quality__wrapper').innerHTML = '';
     document.querySelector('.reset__button').classList.add('reset__button--inactive');
+    document.querySelector('.reset__button').style.disabled = true;
   });
