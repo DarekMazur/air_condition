@@ -1,5 +1,7 @@
 import { renderElement } from '../../Helpers/renderElement';
 
+import * as ButtonStyle from './Button.style.scss';
+
 export const Button = (tag) => {
   const buttonType = {
     geo: {

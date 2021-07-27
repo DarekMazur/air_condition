@@ -1,0 +1,16 @@
+.form {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__select {
+    height: 3.5rem;
+    margin: 0.6rem 0;
+  }
+}

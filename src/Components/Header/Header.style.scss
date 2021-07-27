@@ -1,0 +1,40 @@
+.header {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &__title {
+    margin-top: 3.5rem;
+  }
+
+  &__languageWrapper {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+.language {
+  &__button {
+    margin: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 0;
+    color: transparent;
+
+    &--active {
+      border: 0.4rem solid rgba(19, 201, 19);
+    }
+  }
+
+  &__pl {
+    background: url('../../assets/pl.svg') no-repeat center;
+  }
+
+  &__en {
+    background: url('../../assets/en.svg') no-repeat center;
+  }
+}

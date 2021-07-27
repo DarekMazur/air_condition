@@ -8,6 +8,8 @@ import { renderSelect } from '../../Helpers/renderSelect';
 import { language } from '../../utils/constans';
 import { Loader } from '../Loader/Loader';
 
+import * as FormStyle from './Form.style.scss';
+
 export const Form = () => {
   const selectValues = {
     province: '',

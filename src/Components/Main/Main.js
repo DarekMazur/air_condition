@@ -5,6 +5,8 @@ import { resetSelect } from '../../Helpers/resetSelect';
 import { Form } from '../Form/Form';
 import { setInitialLanguage } from '../../Helpers/setInitialLanguage';
 
+import * as MainStyle from './Main.style.scss';
+
 const Main = () => {
   setInitialLanguage();
 

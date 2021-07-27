@@ -1,0 +1,20 @@
+.geolocation {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__button {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    border: 0;
+  }
+}
+
+.reset__button--inactive {
+  // background-color: yellow;
+  // color: blue;
+}
