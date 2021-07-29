@@ -2,7 +2,7 @@ import { hasError } from './hasError';
 import { renderElement } from './renderElement';
 
 import { language } from '../utils/constans';
-import { StatusIcon } from '../Components/StatusIcon/StatusIcon';
+import { getStatusIcon } from './getStatusIcon';
 
 export const renderResuts = (stationData, stationName) => {
   try {
@@ -77,7 +77,7 @@ export const renderResuts = (stationData, stationName) => {
         'p',
         [`.${param.id}__icon`],
         document.querySelector(`.${param.id}`),
-        StatusIcon(param.index === undefined ? 'noData' : param.index.toString()),
+        getStatusIcon(param.index === undefined ? 'noData' : param.index.toString()),
       );
     });
   } catch (err) {

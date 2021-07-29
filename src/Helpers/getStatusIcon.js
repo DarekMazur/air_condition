@@ -1,12 +1,12 @@
-import NoDataIcon from 'url:../../assets/qualityStatus/noData.svg';
-import VeryGoodIcon from 'url:../../assets/qualityStatus/0.svg';
-import GoodIcon from 'url:../../assets/qualityStatus/1.svg';
-import NeutralIcon from 'url:../../assets/qualityStatus/2.svg';
-import BadIcon from 'url:../../assets/qualityStatus/3.svg';
-import VeryBadIcon from 'url:../../assets/qualityStatus/4.svg';
-import CriticalIcon from 'url:../../assets/qualityStatus/5.svg';
+import NoDataIcon from 'url:../assets/qualityStatus/noData.svg';
+import VeryGoodIcon from 'url:../assets/qualityStatus/0.svg';
+import GoodIcon from 'url:../assets/qualityStatus/1.svg';
+import NeutralIcon from 'url:../assets/qualityStatus/2.svg';
+import BadIcon from 'url:../assets/qualityStatus/3.svg';
+import VeryBadIcon from 'url:../assets/qualityStatus/4.svg';
+import CriticalIcon from 'url:../assets/qualityStatus/5.svg';
 
-export const StatusIcon = (statusId) => {
+export const getStatusIcon = (statusId) => {
   const statusImageElement = (icon) => `
     <img src=${icon} alt=${`${icon} air icon`}>
   `;
