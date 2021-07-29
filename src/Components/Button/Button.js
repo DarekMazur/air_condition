@@ -1,4 +1,5 @@
 import { renderElement } from '../../Helpers/renderElement';
+import { language } from '../../utils/constans';
 
 import * as ButtonStyle from './Button.style.scss';
 
@@ -7,7 +8,7 @@ export const Button = (tag) => {
     geo: {
       class: ['geolocation__button'],
       deck: document.querySelector('.geolocation__wrapper'),
-      body: 'Check your location',
+      body: language[window.localStorage.lang].geoButton,
     },
     reset: {
       class: ['reset__button', 'reset__button--inactive'],
