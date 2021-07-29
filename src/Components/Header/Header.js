@@ -1,11 +1,13 @@
 import { renderElement } from '../../Helpers/renderElement';
 import setLanguage from '../../Helpers/setLanguage';
 import { language } from '../../utils/constans';
+import { Logo } from '../Logo/Logo';
 
 import * as HeaderStyle from './Header.style.scss';
 
 const Header = () => {
   renderElement('header', ['header'], document.querySelector('body'));
+  Logo();
   renderElement('h1', ['header__title'], document.querySelector('.header'), 'Lorem Ipsum');
   renderElement('div', ['header__languageWrapper'], document.querySelector('.header'));
 
