@@ -2,7 +2,7 @@ import { hasError } from './hasError';
 import { renderElement } from './renderElement';
 
 import { language } from '../utils/constans';
-import { getStatusIcon } from './getStatusIcon';
+import { getIcon } from './getIcon';
 
 export const renderResuts = (stationData, stationName) => {
   try {
@@ -60,6 +60,12 @@ export const renderResuts = (stationData, stationName) => {
         document.querySelector('.quality__wrapper'),
       );
       renderElement(
+        'img',
+        [`.${param.id}__sensorIcon`],
+        document.querySelector(`.${param.id}`),
+        getIcon(param.id),
+      );
+      renderElement(
         'h3',
         [`.${param.id}__title`],
         document.querySelector(`.${param.id}`),
@@ -74,10 +80,10 @@ export const renderResuts = (stationData, stationName) => {
         }`,
       );
       renderElement(
-        'p',
+        'img',
         [`.${param.id}__icon`],
         document.querySelector(`.${param.id}`),
-        getStatusIcon(param.index === undefined ? 'noData' : param.index.toString()),
+        getIcon(param.index === undefined ? 'noData' : param.index.toString()),
       );
     });
   } catch (err) {
