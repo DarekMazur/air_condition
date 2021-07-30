@@ -1,0 +1,70 @@
+.quality {
+  &__location {
+  }
+
+  &__date {
+  }
+}
+
+.sensor {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+    border: 0.1rem solid;
+    border-radius: 0.6rem;
+
+    &:last-of-type {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+
+  &__name {
+  }
+
+  &__status {
+    &--value {
+      font-weight: 700;
+      &0 {
+        color: darkgreen;
+      }
+
+      &1 {
+        color: forestgreen;
+      }
+
+      &2 {
+        color: yellow;
+      }
+
+      &3 {
+        color: orange;
+      }
+
+      &4 {
+        color: crimson;
+      }
+
+      &5 {
+        color: darkred;
+      }
+    }
+  }
+
+  &__icon {
+    width: 5rem;
+    height: 5rem;
+  }
+}

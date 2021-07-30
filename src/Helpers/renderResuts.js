@@ -48,7 +48,7 @@ export const renderResuts = (stationData, stationName) => {
 
     renderElement(
       'h3',
-      ['quality__location'],
+      ['quality__date'],
       document.querySelector('.quality__wrapper'),
       `${language[window.localStorage.lang].stationTime}: ${stationData.stSourceDataDate}`,
     );
@@ -56,35 +56,46 @@ export const renderResuts = (stationData, stationName) => {
     airQualityParams.map((param) => {
       renderElement(
         'div',
-        ['quality__parameter', param.id],
+        ['sensor__wrapper', param.id],
         document.querySelector('.quality__wrapper'),
       );
       renderElement(
-        'img',
-        [`.${param.id}__sensorIcon`],
+        'div',
+        ['sensor__header', `${param.id}__header`],
         document.querySelector(`.${param.id}`),
+      );
+      renderElement(
+        'img',
+        ['sensor__image', `${param.id}__sensorIcon`],
+        document.querySelector(`.${param.id}__header`),
         getIcon(param.id),
       );
       renderElement(
         'h3',
-        [`.${param.id}__title`],
-        document.querySelector(`.${param.id}`),
+        ['sensor__name', `${param.id}__title`],
+        document.querySelector(`.${param.id}__header`),
         param.name,
       );
       renderElement(
-        'p',
-        [`.${param.id}__status`],
-        document.querySelector(`.${param.id}`),
-        `Status: ${
-          param.status === undefined ? language[window.localStorage.lang].noData : param.status
-        }`,
-      );
-      renderElement(
         'img',
-        [`.${param.id}__icon`],
-        document.querySelector(`.${param.id}`),
+        ['sensor__icon', `${param.id}__icon`],
+        document.querySelector(`.${param.id}__header`),
         getIcon(param.index === undefined ? 'noData' : param.index.toString()),
       );
+      renderElement(
+        'p',
+        ['sensor__status', `${param.id}__status`],
+        document.querySelector(`.${param.id}`),
+        `Status: ${param.status === undefined ? language[window.localStorage.lang].noData : ''}`,
+      );
+      if (param.index !== undefined) {
+        renderElement(
+          'span',
+          ['sensor__status--value', `sensor__status--value${param.index}`],
+          document.querySelector(`.${param.id}__status`),
+          language[window.localStorage.lang][`status${param.index}`],
+        );
+      }
     });
   } catch (err) {
     hasError();

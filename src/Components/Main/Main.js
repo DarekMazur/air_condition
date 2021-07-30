@@ -6,6 +6,7 @@ import { Form } from '../Form/Form';
 import { setInitialLanguage } from '../../Helpers/setInitialLanguage';
 
 import * as MainStyle from './Main.style.scss';
+import * as resultsStyle from './results.style.scss';
 
 const Main = () => {
   setInitialLanguage();
