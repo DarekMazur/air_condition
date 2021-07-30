@@ -12,6 +12,8 @@ body {
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url('./assets/background.jpg') no-repeat center/cover fixed;
 }
 
 *,
