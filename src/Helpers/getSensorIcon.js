@@ -1,8 +1,8 @@
-import ozoneIcon from 'url:../assets/sensors/ozone.svg';
-import suplhurIcon from 'url:../assets/sensors/so2.svg';
-import nitroIcon from 'url:../assets/sensors/no2.svg';
-import dustIcon from 'url:../assets/sensors/pm10.svg';
-import earosolIcon from 'url:../assets/sensors/pm25.svg';
+import ozoneIcon from "../assets/sensors/ozone.svg";
+import suplhurIcon from "../assets/sensors/so2.svg";
+import nitroIcon from "../assets/sensors/no2.svg";
+import dustIcon from "../assets/sensors/pm10.svg";
+import earosolIcon from "../assets/sensors/pm25.svg";
 
 export const getStatusIcon = (statusId) => {
   const statusImageElement = (icon) => `
@@ -10,17 +10,17 @@ export const getStatusIcon = (statusId) => {
   `;
 
   switch (statusId) {
-    case '0':
+    case "0":
       return statusImageElement(VeryGoodIcon);
-    case '1':
+    case "1":
       return statusImageElement(GoodIcon);
-    case '2':
+    case "2":
       return statusImageElement(NeutralIcon);
-    case '3':
+    case "3":
       return statusImageElement(BadIcon);
-    case '4':
+    case "4":
       return statusImageElement(VeryBadIcon);
-    case '5':
+    case "5":
       return statusImageElement(CriticalIcon);
     default:
       return statusImageElement(NoDataIcon);

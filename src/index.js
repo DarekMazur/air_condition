@@ -1,8 +1,11 @@
-import Header from './Components/Header/Header';
-import Main from './Components/Main/Main';
-import Footer from './Components/Footer/Footer';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
-import * as GlobalStyle from './index.style.scss';
+import Header from "./Components/Header/Header";
+import Main from "./Components/Main/Main";
+import Footer from "./Components/Footer/Footer";
+
+import "./index.style.scss";
 
 Header();
 Main();

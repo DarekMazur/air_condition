@@ -1,8 +1,8 @@
-import { renderElement } from '../../Helpers/renderElement';
-import { language } from '../../utils/constans';
-import { gsap } from 'gsap';
+import { renderElement } from "../../Helpers/renderElement";
+import { language } from "../../utils/constans";
+import { gsap } from "gsap";
 
-import * as LoaderStyle from './Loader.style.scss';
+import "./Loader.style.scss";
 
 const loaderImage = `
 <svg viewBox="0 0 650 649" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,22 +70,38 @@ const loaderImage = `
 `;
 
 export const Loader = () => {
-  renderElement('div', ['loader__wrapper'], document.querySelector('.quality__wrapper'));
-  renderElement('div', ['loader__image'], document.querySelector('.loader__wrapper'), loaderImage);
   renderElement(
-    'h3',
-    ['loader__description'],
-    document.querySelector('.loader__wrapper'),
-    language[window.localStorage.lang].loader,
+    "div",
+    ["loader__wrapper"],
+    document.querySelector(".quality__wrapper")
+  );
+  renderElement(
+    "div",
+    ["loader__image"],
+    document.querySelector(".loader__wrapper"),
+    loaderImage
+  );
+  renderElement(
+    "h3",
+    ["loader__description"],
+    document.querySelector(".loader__wrapper"),
+    language[window.localStorage.lang].loader
   );
 
-  const clouds = document.querySelectorAll('.cloud');
+  const clouds = document.querySelectorAll(".cloud");
 
   clouds.forEach((cloud) =>
     gsap.fromTo(
       cloud,
-      { fill: '#e3e6ff', x: -15 },
-      { fill: '#797B89', x: 15, duration: 1.2, ease: 'slow', repeat: -1, yoyo: true },
-    ),
+      { fill: "#e3e6ff", x: -15 },
+      {
+        fill: "#797B89",
+        x: 15,
+        duration: 1.2,
+        ease: "slow",
+        repeat: -1,
+        yoyo: true,
+      }
+    )
   );
 };

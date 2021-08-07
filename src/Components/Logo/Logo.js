@@ -1,7 +1,7 @@
-import gsap from 'gsap';
-import { renderElement } from '../../Helpers/renderElement';
+import gsap from "gsap";
+import { renderElement } from "../../Helpers/renderElement";
 
-import * as LogoStyle from './Logo.style.scss';
+import "./Logo.style.scss";
 
 export const Logo = () => {
   const vector = `
@@ -23,17 +23,22 @@ export const Logo = () => {
     <path class="wave" d="M215.5 188.65C175.363 212.778 123.03 210.685 77 188.65C126.683 232.014 178.5 228.5 227.5 208.746C258 196.45 309.191 204.287 357.5 238.65C305.909 201.953 255.637 164.521 215.5 188.65Z" fill="#56AAC5"/>
     </svg>
   `;
-  renderElement('div', ['header__logo'], document.querySelector('.header'), vector);
+  renderElement(
+    "div",
+    ["header__logo"],
+    document.querySelector(".header"),
+    vector
+  );
 
   const animateLogo = () => {
-    const waves = document.querySelectorAll('.wave');
+    const waves = document.querySelectorAll(".wave");
     const tl = gsap.timeline({ repeat: -1, yoyo: true });
-    tl.to(waves[0], { duration: 0.5, x: 40, ease: 'power1' })
-      .to(waves[1], { duration: 0.5, x: 40, ease: 'power1' }, '-=0.3')
-      .to(waves[2], { duration: 0.5, x: 40, ease: 'power1' }, '-=0.3')
-      .to(waves[0], { duration: 0.5, x: 0, ease: 'power1' }, '-=0.3')
-      .to(waves[1], { duration: 0.5, x: 0, ease: 'power1' }, '-=0.3')
-      .to(waves[2], { duration: 0.5, x: 0, ease: 'power1' }, '-=0.3');
+    tl.to(waves[0], { duration: 0.5, x: 40, ease: "power1" })
+      .to(waves[1], { duration: 0.5, x: 40, ease: "power1" }, "-=0.3")
+      .to(waves[2], { duration: 0.5, x: 40, ease: "power1" }, "-=0.3")
+      .to(waves[0], { duration: 0.5, x: 0, ease: "power1" }, "-=0.3")
+      .to(waves[1], { duration: 0.5, x: 0, ease: "power1" }, "-=0.3")
+      .to(waves[2], { duration: 0.5, x: 0, ease: "power1" }, "-=0.3");
   };
 
   animateLogo();
