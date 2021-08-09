@@ -25,7 +25,7 @@ export const language = {
     status5: 'Very bad',
     formTitle: 'or choose station from list',
     loader: 'Loading...',
-    province: 'Choose pravince:',
+    province: 'Choose province:',
     city: 'Choose city:',
     station: 'Choose station:',
     geoButton: 'Find closest station',
