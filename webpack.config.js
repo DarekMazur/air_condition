@@ -63,7 +63,6 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      // template: './src/index.html',
       title: 'Air condition',
       inject: 'body',
       meta: {
