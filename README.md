@@ -22,6 +22,7 @@
 
     ```shell
     cd app-main-dir/
+    npm install
     npm run build
     ```
 
