@@ -13,7 +13,7 @@ export const renderSelect = (childern, parent, value) => {
 
   getApiData(childern, parent, value).then((response) => {
     try {
-      response.map((parentElement) => {
+      response.sort().map((parentElement) => {
         renderElement('option', [], document.querySelector(`.select__${childern}`), parentElement);
       });
     } catch {
