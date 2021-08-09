@@ -4,6 +4,7 @@ import { renderElement } from './renderElement';
 export const resetSelect = () =>
   document.querySelectorAll('.form__select').forEach((select) => {
     if (!select.classList.contains('select__province')) {
+      let option = '';
       select.classList.contains('select__city') ? (option = 'city') : (option = 'station');
       select.innerHTML = '';
       renderElement(
