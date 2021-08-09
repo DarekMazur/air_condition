@@ -1,7 +1,9 @@
 export const constans = {
   PROXY: 'https://thingproxy.freeboard.io/fetch/',
+  // PROXY: 'https://yacdn.org/proxy/',
   API_URL: 'http://api.gios.gov.pl/pjp-api/rest/station/findAll',
   STATIONS_API_URL: 'http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/',
+  HEADERS: {},
 };
 
 export const language = {
@@ -29,6 +31,7 @@ export const language = {
     city: 'Choose city:',
     station: 'Choose station:',
     geoButton: 'Find closest station',
+    err: 'Something goes wrong... please try again',
   },
   PL: {
     langName: 'polski',
@@ -54,5 +57,6 @@ export const language = {
     city: 'Wybierz miasto:',
     station: 'Wybierz stację:',
     geoButton: 'Znajdź najbliższą stację',
+    err: 'Coś poszło nie tak... spróbuj ponownie później...',
   },
 };

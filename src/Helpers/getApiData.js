@@ -3,7 +3,6 @@ import { hasError } from './hasError';
 
 export const getApiData = async (children, parent, parentName) => {
   const allData = await getData;
-
   const data = [];
   try {
     allData.forEach((element) => {
