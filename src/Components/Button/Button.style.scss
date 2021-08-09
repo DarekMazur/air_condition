@@ -6,15 +6,33 @@
   }
 
   &__button {
+    font-family: 'Montserrat', sans-serif;
     width: 10rem;
     height: 10rem;
     border-radius: 0.5rem;
     margin: 1rem;
-    border: 0;
+    border-width: 0 0.1rem 0.1rem 0;
+    background-color: rgb(161, 236, 255);
+    color: rgb(33, 64, 131);
+
+    &:active {
+      border-width: 0.1rem 0 0 0.1rem;
+    }
   }
 }
 
-.reset__button--inactive {
-  // background-color: yellow;
-  // color: blue;
+.reset {
+  &__button {
+    font-family: 'Montserrat', sans-serif;
+    width: 10rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+    background-color: rgb(161, 236, 255);
+    color: rgb(33, 64, 131);
+
+    &--inactive {
+      background-color: rgb(199, 229, 236);
+      color: rgb(143, 178, 255);
+    }
+  }
 }

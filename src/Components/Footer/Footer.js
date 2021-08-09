@@ -1,3 +1,5 @@
+import './Footer.style.scss';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const footerWrapper = document.createElement('footer');
