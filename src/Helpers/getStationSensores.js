@@ -1,6 +1,6 @@
 import { constans } from '../utils/constans';
 
-const STATIONS_API_URL = `${constans.PROXY}${constans.STATIONS_API_URL}`;
+const STATIONS_API_URL = `${constans.STATIONS_API_URL}`;
 
 export const getStationSensores = (station) => {
   const stationApi = `${STATIONS_API_URL}${station}`;

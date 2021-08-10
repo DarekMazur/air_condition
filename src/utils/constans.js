@@ -1,8 +1,8 @@
 export const constans = {
   PROXY: 'https://thingproxy.freeboard.io/fetch/',
-  // PROXY: 'https://yacdn.org/proxy/',
-  API_URL: 'http://api.gios.gov.pl/pjp-api/rest/station/findAll',
-  STATIONS_API_URL: 'http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/',
+  // PROXY: 'https://cors-anywhere-gacek.herokuapp.com/',
+  API_URL: 'https://air-condition-cors-proxy.herokuapp.com/station/findAll',
+  STATIONS_API_URL: 'https://air-condition-cors-proxy.herokuapp.com/aqindex/getIndex/',
   HEADERS: {},
 };
 
