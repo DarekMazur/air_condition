@@ -7,7 +7,6 @@
 </h1>
 
 ## WORK IN PROGRESS
-:no_entry: Temporary abandoned because of public API CORS policy...
 
 ## :cyclone: About app
 
@@ -26,7 +25,6 @@
     npm install
     npm run build
     ```
-    :exclamation: In current version app is working only in developer mode on localhost (see below) :exclamation: 
 
 3.  **Developer mode**
 
