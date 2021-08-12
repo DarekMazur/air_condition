@@ -7,6 +7,9 @@ export const renderElement = (tag, className, target, content) => {
 
   if (tag === 'img' && content) {
     newElement.src = content;
+  } else if (tag === 'a' && content) {
+    newElement.href = content;
+    newElement.target = '_blank';
   } else if (content) {
     newElement.innerHTML = content;
   }

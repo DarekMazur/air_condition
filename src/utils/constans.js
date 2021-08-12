@@ -1,9 +1,11 @@
 export const constans = {
   PROXY: 'https://thingproxy.freeboard.io/fetch/',
-  // PROXY: 'https://cors-anywhere-gacek.herokuapp.com/',
   API_URL: 'https://air-condition-cors-proxy.herokuapp.com/station/findAll',
   STATIONS_API_URL: 'https://air-condition-cors-proxy.herokuapp.com/aqindex/getIndex/',
-  HEADERS: {},
+};
+
+export const links = {
+  GITHUB: 'https://github.com/DarekMazur',
 };
 
 export const language = {

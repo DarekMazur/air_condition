@@ -1,5 +1,5 @@
 <p align="center">
-        <img alt="Air Quality Logo" src="src/assets/AirQualityLogo.svg" width="200" />
+    <img alt="Air Quality Logo" src="src/assets/AirQualityLogo.svg" width="200" />
 </p>
 
 <h1 align="center">
@@ -8,7 +8,9 @@
 
 ## WORK IN PROGRESS
 
-## :cyclone: About app
+Live demo: [app]
+
+## 💨 About app
 
 ## 🚀 Quick start
 
@@ -35,3 +37,5 @@
     ```
 
     Application will run on port 8080 (localhost:8080)
+
+    [app]: https://optimistic-hoover-b823d7.netlify.app/
