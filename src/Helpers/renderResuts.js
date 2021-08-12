@@ -86,7 +86,9 @@ export const renderResuts = (stationData, stationName) => {
         'p',
         ['sensor__status', `${param.id}__status`],
         document.querySelector(`.${param.id}`),
-        `Status: ${param.status === undefined ? language[window.localStorage.lang].noData : ''}`,
+        `${language[window.localStorage.lang].statusTitle}: ${
+          param.status === undefined ? language[window.localStorage.lang].noData : ''
+        }`,
       );
       if (param.index !== undefined) {
         renderElement(

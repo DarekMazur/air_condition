@@ -12,7 +12,7 @@ export const language = {
   EN: {
     langName: 'english',
     langShortName: 'en',
-    appTitle: 'Air quality',
+    appTitle: 'Smoggy Foggy',
     so2: 'Sulphur dioxide',
     no2: 'Nitrogen dioxide',
     o3: 'Ozone',
@@ -20,6 +20,7 @@ export const language = {
     pm10: 'Suspended dust (PM10)',
     sationHeader: 'Measuring station',
     stationTime: 'Measuring time',
+    statusTitle: 'Quality',
     noData: 'No data',
     status0: 'Very good',
     status1: 'Good',
@@ -38,7 +39,7 @@ export const language = {
   PL: {
     langName: 'polski',
     langShortName: 'pl',
-    appTitle: 'Jakość powietrza',
+    appTitle: 'Smoggy Foggy',
     so2: 'Dwutlenek siarki',
     no2: 'Dwutlenek azotu',
     o3: 'Ozon',
@@ -46,6 +47,7 @@ export const language = {
     pm10: 'Pył zawieszony (PM10)',
     sationHeader: 'Stacja pomiarowa',
     stationTime: 'Data pomiaru',
+    statusTitle: 'Jakość',
     noData: 'Brak danych',
     status0: 'Bardzo dobry',
     status1: 'Dobry',
