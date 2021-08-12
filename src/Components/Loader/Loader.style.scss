@@ -21,6 +21,7 @@
     left: 0;
     background-color: rgba($color: #fff, $alpha: 0.9);
     animation: popup 500ms;
+    z-index: 3;
   }
 
   &__image {
