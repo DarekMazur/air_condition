@@ -89,7 +89,7 @@ module.exports = {
         },
         {
           append: false,
-          path: 'https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat&family=Oswald:wght@500&display=swap',
+          path: 'https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Indie+Flower&family=Montserrat&family=Oswald:wght@500&display=swap',
           attributes: {
             rel: 'stylesheet',
             crossorigin: 'anonymous',
