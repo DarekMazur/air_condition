@@ -63,7 +63,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Air condition',
+      title: 'SmoggyFoggy',
       inject: 'body',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',

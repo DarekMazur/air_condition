@@ -8,6 +8,8 @@
 
 ## WORK IN PROGRESS
 
+Current MVP version is design for mobile. Desktop layout will be implement in next stage.
+
 Live demo: [app]
 
 ## 💨 About app
