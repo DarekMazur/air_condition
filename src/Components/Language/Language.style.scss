@@ -13,25 +13,25 @@
     height: 3rem;
     width: 3rem;
     border: 0;
+    z-index: 2;
   }
 
   &__list {
     position: absolute;
-    display: none;
+    // display: none;
     top: 0;
     right: 0;
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 3rem;
-    overflow-y: hidden;
+    transform: scaleY(0);
     opacity: 0;
-    transition: transform 1s ease-out, opacity 1s ease-out;
+    transform-origin: 0 0;
+    transition: transform 0.3s ease-out, opacity 0.3s 0.1s ease-out;
 
     &--active {
-      display: block;
-      transform: translateY(5.5rem);
-      height: auto;
+      // display: block;
+      transform: scaleY(1) translateY(5.5rem);
       opacity: 1;
     }
   }

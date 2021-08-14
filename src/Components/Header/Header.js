@@ -28,6 +28,7 @@ const Header = () => {
     );
 
   document.querySelectorAll('.language__ListItem').forEach((languageButton) => {
+    document.querySelector('.language__list').classList.remove('language__list--active');
     if (languageButton.innerHTML.toUpperCase() === window.localStorage.lang) {
       languageButton.classList.add('language__ListItem--active');
     }
