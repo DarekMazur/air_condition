@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
   mode: 'development',
@@ -99,6 +100,19 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
+    }),
+    new WebpackPwaManifest({
+      name: 'SmoggyFoggy',
+      short_name: 'SmoggyFoggy',
+      description: 'Check air quality in your area',
+      background_color: '#ffffff',
+      crossorigin: 'use-credentials',
+      icons: [
+        {
+          src: path.resolve('src/assets/icons/icon.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+        },
+      ],
     }),
   ],
 };
