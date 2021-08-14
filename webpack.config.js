@@ -102,11 +102,13 @@ module.exports = {
       filename: '[name].css',
     }),
     new WebpackPwaManifest({
+      publicPath: '/',
       name: 'SmoggyFoggy',
       short_name: 'SmoggyFoggy',
       description: 'Check air quality in your area',
       background_color: '#ffffff',
       crossorigin: 'use-credentials',
+      includeDirectory: true,
       icons: [
         {
           src: path.resolve('src/assets/icons/icon.png'),

@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "webpack serve --open --content-base src/",
     "prebuild": "npm run clean",
-    "build": "webpack --mode=production",
+    "build": "webpack",
+    "prod": "webpack --mode=production",
     "clean": "rimraf dist"
   },
   "keywords": [
