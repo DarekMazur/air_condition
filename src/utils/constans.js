@@ -1,5 +1,4 @@
 export const constans = {
-  PROXY: 'https://thingproxy.freeboard.io/fetch/',
   API_URL: 'https://air-condition-cors-proxy.herokuapp.com/station/findAll',
   STATIONS_API_URL: 'https://air-condition-cors-proxy.herokuapp.com/aqindex/getIndex/',
 };
@@ -68,7 +67,7 @@ export const language = {
   RU: {
     langName: 'русский',
     langShortName: 'ru',
-    appTitle: 'Смогги Туманный',
+    appTitle: 'Smoggy Foggy',
     so2: 'Двутленек сиарки',
     no2: 'Диоксид азота',
     o3: 'Озон',

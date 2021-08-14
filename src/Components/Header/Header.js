@@ -1,42 +1,37 @@
-import { renderElement } from "../../Helpers/renderElement";
-import { setInitialLanguage } from "../../Helpers/setInitialLanguage";
-import { setLanguage } from "../../Helpers/setLanguage";
-import { language } from "../../utils/constans";
-import { Logo } from "../Logo/Logo";
+import { renderElement } from '../../Helpers/renderElement';
+import { setInitialLanguage } from '../../Helpers/setInitialLanguage';
+import { setLanguage } from '../../Helpers/setLanguage';
+import { language } from '../../utils/constans';
+import Language from '../Language/Language';
+import { Logo } from '../Logo/Logo';
 
-import "./Header.style.scss";
+import './Header.style.scss';
 
 const Header = () => {
   setInitialLanguage();
 
-  renderElement("header", ["header"], document.querySelector("body"));
+  renderElement('header', ['header'], document.querySelector('body'));
   Logo();
   renderElement(
-    "h1",
-    ["header__title"],
-    document.querySelector(".header"),
-    language[window.localStorage.lang].appTitle
-  );
-  renderElement(
-    "div",
-    ["header__languageWrapper"],
-    document.querySelector(".header")
+    'h1',
+    ['header__title'],
+    document.querySelector('.header'),
+    language[window.localStorage.lang].appTitle,
   );
 
-  Object.entries(language).forEach((lang) =>
-    renderElement(
-      "button",
-      ["language__button", `language__${lang[1].langShortName}`],
-      document.querySelector(".header__languageWrapper"),
-      lang[1].langShortName
-    )
-  );
+  Language();
 
-  document.querySelectorAll(".language__button").forEach((languageButton) => {
+  document
+    .querySelector('.language__menuSwitch')
+    .addEventListener('click', () =>
+      document.querySelector('.language__list').classList.toggle('language__list--active'),
+    );
+
+  document.querySelectorAll('.language__ListItem').forEach((languageButton) => {
     if (languageButton.innerHTML.toUpperCase() === window.localStorage.lang) {
-      languageButton.classList.add("language__button--active");
+      languageButton.classList.add('language__ListItem--active');
     }
-    languageButton.addEventListener("click", (e) => setLanguage(e));
+    languageButton.addEventListener('click', (e) => setLanguage(e));
   });
 };
 

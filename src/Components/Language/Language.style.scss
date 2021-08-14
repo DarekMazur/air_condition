@@ -1,0 +1,87 @@
+.language {
+  &__wrapper {
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+  }
+
+  &__menuSwitch {
+    position: relative;
+    background: url('../../assets/lang.svg') no-repeat center/cover;
+    margin: 0.5rem;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    border: 0;
+  }
+
+  &__list {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    overflow-y: hidden;
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+
+    &--active {
+      display: block;
+      transform: translateY(5.5rem);
+      height: auto;
+      opacity: 1;
+    }
+  }
+
+  &__ListItem {
+    position: relative;
+    margin: 1.5rem 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 0;
+    color: transparent;
+    opacity: 0.5;
+
+    &:first-of-type {
+      margin-top: 0.5rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.5;
+      border-radius: 50%;
+    }
+
+    &--active {
+      opacity: 1;
+
+      &::after {
+        background-color: #000;
+        opacity: 0;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__pl {
+    background: url('../../assets/pl.svg') no-repeat center;
+  }
+
+  &__en {
+    background: url('../../assets/en.svg') no-repeat center;
+  }
+
+  &__ru {
+    background: url('../../assets/ru.svg') no-repeat center;
+  }
+}
