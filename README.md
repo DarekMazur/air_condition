@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-  Air Quality
+  SmoggyFoggy
 </h1>
 
 ## WORK IN PROGRESS
@@ -15,7 +15,8 @@ Live demo: [app]
 ## 💨 About app
 
 SmoggyFoggy is showing data abut air quality in Poland. Data is based on Polish GIOS (Główny Inspektorat Ochrony Środowiska - Chief Inspectorate of Environmental Protection) measurement stations.
-Data can be displayed based on device localisation or manual choosen
+Data can be displayed based on device localisation or manual choosen.
+Application support English, Polish and Russian.
 
 ## 🚀 Quick start
 

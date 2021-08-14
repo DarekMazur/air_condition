@@ -11,7 +11,7 @@ export const language = {
   EN: {
     langName: 'english',
     langShortName: 'en',
-    appTitle: 'Smoggy Foggy',
+    appTitle: 'SmoggyFoggy',
     so2: 'Sulphur dioxide',
     no2: 'Nitrogen dioxide',
     o3: 'Ozone',
@@ -39,7 +39,7 @@ export const language = {
   PL: {
     langName: 'polski',
     langShortName: 'pl',
-    appTitle: 'Smoggy Foggy',
+    appTitle: 'SmoggyFoggy',
     so2: 'Dwutlenek siarki',
     no2: 'Dwutlenek azotu',
     o3: 'Ozon',
@@ -67,7 +67,7 @@ export const language = {
   RU: {
     langName: 'русский',
     langShortName: 'ru',
-    appTitle: 'Smoggy Foggy',
+    appTitle: 'SmoggyFoggy',
     so2: 'Двутленек сиарки',
     no2: 'Диоксид азота',
     o3: 'Озон',
