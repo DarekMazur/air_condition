@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     app: './src/index.js',
     swRegister: './src/swReg.js',
+    sw: './src/sw.js',
   },
   output: {
     filename: '[name].js',
