@@ -6,10 +6,14 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    swRegister: './src/swReg.js',
+  },
   output: {
-    filename: 'app.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'images/[name][ext][query]',
   },
 
   module: {
@@ -65,6 +69,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'SmoggyFoggy',
+      favicon: './src/assets/icons/iosIcon.png',
       inject: 'body',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',
@@ -107,6 +112,7 @@ module.exports = {
       short_name: 'SmoggyFoggy',
       description: 'Check air quality in your area',
       background_color: '#ffffff',
+      theme_color: '#A8E2F4',
       crossorigin: 'use-credentials',
       includeDirectory: true,
       icons: [
