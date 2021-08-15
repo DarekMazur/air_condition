@@ -6,9 +6,9 @@
   SmoggyFoggy
 </h1>
 
-## WORK IN PROGRESS
+## Version: 0.8.1
 
-Current MVP version is design for mobile. Desktop layout will be implement in next stage.
+Current version is design for mobile. Desktop layout will be implement in next stage.
 
 Live demo: [app]
 
@@ -32,8 +32,10 @@ Application support English, Polish and Russian.
     ```shell
     cd app-main-dir/
     npm install
-    npm run build
+    npm run prod
     ```
+
+    Command `npm run prod` will minimize files. If you want to get "human friendly" bundle use `npm run build`
 
 3.  **Developer mode**
 
