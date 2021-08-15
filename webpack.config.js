@@ -70,7 +70,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'SmoggyFoggy',
-      favicon: './src/assets/icons/iosIcon.png',
       inject: 'body',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',
@@ -97,6 +96,7 @@ module.exports = {
         {
           append: false,
           path: 'https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Indie+Flower&family=Montserrat&family=Oswald:wght@500&display=swap',
+          type: 'css',
           attributes: {
             rel: 'stylesheet',
             crossorigin: 'anonymous',
