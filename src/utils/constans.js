@@ -33,7 +33,7 @@ export const language = {
     city: 'Choose city:',
     station: 'Choose station:',
     geoButton: 'Find closest station',
-    err: 'Something goes wrong... please try again',
+    err: 'Something goes wrong... please check your Internet connection',
     reset: 'RESET',
   },
   PL: {
@@ -61,7 +61,7 @@ export const language = {
     city: 'Wybierz miasto:',
     station: 'Wybierz stację:',
     geoButton: 'Znajdź najbliższą stację',
-    err: 'Coś poszło nie tak... spróbuj ponownie później...',
+    err: 'Coś poszło nie tak... sprawdź połączenie z internetem...',
     reset: 'WYCZYŚĆ',
   },
   RU: {
@@ -89,7 +89,7 @@ export const language = {
     city: 'Выберите город:',
     station: 'Выберите станцию:',
     geoButton: 'Найти ближайшую станцию',
-    err: 'Что-то пошло не так ... попробуйте еще раз',
+    err: 'Что-то пошло не так ... Пожалуйста, проверьте подключение к интернету',
     reset: 'ЧИСТЫЙ',
   },
 };

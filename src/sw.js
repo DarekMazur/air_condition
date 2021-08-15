@@ -1,4 +1,5 @@
 const CACHE_NAME = 'smoggyfoggy-static';
+const CACHE_DYNAMIC = 'smoggyfoggy-dynamic';
 const urlsToCache = [
   '/',
   '/app.css',
@@ -24,18 +25,28 @@ const urlsToCache = [
   'https://fonts.gstatic.com/s/oswald/v40/TK3_WkUHHAIjg75cFRf3bXL8LICs18NvsUZiZQ.woff2',
 ];
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(
+self.addEventListener('install', (e) => {
+  e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(urlsToCache);
     }),
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+self.addEventListener('fetch', (e) => {
+  if (!(e.request.url.indexOf('http') === 0)) return;
+  e.respondWith(
+    caches.match(e.request).then((response) => {
+      return (
+        // response || fetch(e.request)
+        response ||
+        fetch(e.request).then((fetchRes) => {
+          return caches.open(CACHE_DYNAMIC).then((cache) => {
+            cache.put(e.request.url, fetchRes.clone());
+            return fetchRes;
+          });
+        })
+      );
     }),
   );
 });
