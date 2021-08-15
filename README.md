@@ -6,7 +6,7 @@
   SmoggyFoggy
 </h1>
 
-## Version: 0.8.1
+## Version: 0.8.2
 
 Current version is design for mobile. Desktop layout will be implement in next stage.
 
@@ -77,4 +77,10 @@ A quick look at the top-level files and directories in project.
 
 - **`webpack.config.js`**: Awebpack configuration file
 
-  [app]: https://optimistic-hoover-b823d7.netlify.app/
+## Changelog
+
+**0.8.2**
+* added dynamic cache to expand offline accessibility
+* change error message
+
+[app]: https://optimistic-hoover-b823d7.netlify.app/
