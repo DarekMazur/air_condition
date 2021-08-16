@@ -34,6 +34,8 @@ export const language = {
     station: 'Choose station:',
     geoButton: 'Find closest station',
     err: 'Something goes wrong... please check your Internet connection',
+    geoOff:
+      "Can't get your location. Please check device setup and turn geolocation on or choose station manually.",
     reset: 'RESET',
   },
   PL: {
@@ -62,6 +64,8 @@ export const language = {
     station: 'Wybierz stację:',
     geoButton: 'Znajdź najbliższą stację',
     err: 'Coś poszło nie tak... sprawdź połączenie z internetem...',
+    geoOff:
+      'Nie można odczytać Twojej lokalizacji. Sprawdź konfigurację urządzenia i włącz geolokalizację lub wybierz stację ręcznie.',
     reset: 'WYCZYŚĆ',
   },
   RU: {
@@ -90,6 +94,8 @@ export const language = {
     station: 'Выберите станцию:',
     geoButton: 'Найти ближайшую станцию',
     err: 'Что-то пошло не так ... Пожалуйста, проверьте подключение к интернету',
+    geoOff:
+      'Не могу определить ваше местоположение. Проверьте настройки устройства и включите геолокацию или выберите станцию ​​вручную.',
     reset: 'ЧИСТЫЙ',
   },
 };

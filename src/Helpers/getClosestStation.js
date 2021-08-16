@@ -1,4 +1,5 @@
 import { Loader } from '../Components/Loader/Loader';
+import { language } from '../utils/constans';
 import { getData } from './getData';
 import { getStationData } from './getStationData';
 import { hasError } from './hasError';
@@ -8,6 +9,13 @@ const getGeo = () =>
   new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition((position) => resolve(position.coords));
   }).then((data) => getDistance(data.latitude, data.longitude));
+
+navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
+  permissionStatus.onchange = function () {
+    document.querySelector('.quality__wrapper').innerHTML =
+      language[window.localStorage.lang].geoOff;
+  };
+});
 
 const calculateDistance = (
   currentLat,
@@ -68,7 +76,7 @@ export const getClosestStation = async () => {
 
   navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
     if (result.state == 'denied') {
-      hasError(`Can't get your location. Please check device setup and turn geolocation on.`);
+      hasError(language[window.localStorage.lang].geoOff);
     }
   });
 
