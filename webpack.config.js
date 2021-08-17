@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -52,7 +53,7 @@ module.exports = {
       },
 
       {
-        test: /\.(png|jpg|gif|svg)/,
+        test: /\.(png|jpg|gif|svg|ico)/,
         type: 'asset/resource',
       },
       {
@@ -70,7 +71,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'SmoggyFoggy',
-      inject: 'body',
+      inject: true,
+      // favicon: './src/favicon.ico',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',
         description: 'Check air condition in your area',
@@ -79,14 +81,14 @@ module.exports = {
     new HtmlWebpackTagsPlugin({
       links: [
         {
-          append: false,
+          append: true,
           path: 'https://fonts.googleapis.com',
           attributes: {
             rel: 'preconnect',
           },
         },
         {
-          append: false,
+          append: true,
           path: 'https://fonts.gstatic.com',
           attributes: {
             rel: 'preconnect',
@@ -94,7 +96,7 @@ module.exports = {
           },
         },
         {
-          append: false,
+          append: true,
           path: 'https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Indie+Flower&family=Montserrat&family=Oswald:wght@500&display=swap',
           type: 'css',
           attributes: {
@@ -128,5 +130,29 @@ module.exports = {
         },
       ],
     }),
+    new FaviconsWebpackPlugin('./src/assets/icons/icon.png'),
+    //   {
+    //   // Your source logo (required)
+    //   logo: './src/favicon.ico',
+    //   cache: true,
+    //   publicPath: '/static',
+    //   outputPath: '/public/static',
+    //   prefix: '/',
+    //   inject: true,
+
+    //   favicons: {
+    //     icons: {
+    //       android: true,
+    //       appleIcon: true,
+    //       appleStartup: true,
+    //       coast: true,
+    //       favicons: true,
+    //       firefox: true,
+    //       windows: true,
+    //       yandex: true,
+    //     },
+    //   },
+    // }
+    // ),
   ],
 };
