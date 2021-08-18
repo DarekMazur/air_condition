@@ -1,6 +1,6 @@
 export const constans = {
-  API_URL: 'https://air-condition-cors-proxy.herokuapp.com/station/findAll',
-  STATIONS_API_URL: 'https://air-condition-cors-proxy.herokuapp.com/aqindex/getIndex/',
+  API_URL: 'http://nerdistry.pl:3000/station/findAll',
+  STATIONS_API_URL: 'http://nerdistry.pl:3000/aqindex/getIndex/',
 };
 
 export const links = {

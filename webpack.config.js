@@ -72,7 +72,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'SmoggyFoggy',
       inject: true,
-      // favicon: './src/favicon.ico',
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',
         description: 'Check air condition in your area',

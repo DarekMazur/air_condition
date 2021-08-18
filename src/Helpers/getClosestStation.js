@@ -75,8 +75,9 @@ export const getClosestStation = async () => {
   Loader();
 
   navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
+    console.log(result.state);
     if (result.state == 'denied') {
-      hasError(language[window.localStorage.lang].geoOff);
+      // hasError(language[window.localStorage.lang].geoOff);
     }
   });
 
