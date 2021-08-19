@@ -1,6 +1,6 @@
 export const constans = {
-  API_URL: 'http://nerdistry.pl:3000/station/findAll',
-  STATIONS_API_URL: 'http://nerdistry.pl:3000/aqindex/getIndex/',
+  API_URL: 'http://nerdistry.pl:3000/api/all',
+  STATIONS_API_URL: 'http://nerdistry.pl:3000/api/getIndex/',
 };
 
 export const links = {
