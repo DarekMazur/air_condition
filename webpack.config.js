@@ -130,28 +130,5 @@ module.exports = {
       ],
     }),
     new FaviconsWebpackPlugin('./src/assets/icons/icon.png'),
-    //   {
-    //   // Your source logo (required)
-    //   logo: './src/favicon.ico',
-    //   cache: true,
-    //   publicPath: '/static',
-    //   outputPath: '/public/static',
-    //   prefix: '/',
-    //   inject: true,
-
-    //   favicons: {
-    //     icons: {
-    //       android: true,
-    //       appleIcon: true,
-    //       appleStartup: true,
-    //       coast: true,
-    //       favicons: true,
-    //       firefox: true,
-    //       windows: true,
-    //       yandex: true,
-    //     },
-    //   },
-    // }
-    // ),
   ],
 };
