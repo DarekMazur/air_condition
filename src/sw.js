@@ -39,12 +39,14 @@ self.addEventListener('fetch', (e) => {
     caches.match(e.request).then((response) => {
       return (
         // response || fetch(e.request)
-        response ||
+        // response ||
         fetch(e.request).then((fetchRes) => {
-          return caches.open(CACHE_DYNAMIC).then((cache) => {
-            cache.put(e.request.url, fetchRes.clone());
-            return fetchRes;
-          });
+          return (
+            caches.open(CACHE_DYNAMIC).then((cache) => {
+              cache.put(e.request.url, fetchRes.clone());
+              return fetchRes;
+            }) || response
+          );
         })
       );
     }),
