@@ -75,7 +75,10 @@ module.exports = {
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',
         description: 'Check air condition in your area',
-        'og:image': { property: 'og:image', content: path.resolve('src/assets/icons/iosIcon.png') },
+        'og:image': {
+          property: 'og:image',
+          content: 'images/background.jpg',
+        },
       },
     }),
     new HtmlWebpackTagsPlugin({
