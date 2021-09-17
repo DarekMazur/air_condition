@@ -1,10 +1,10 @@
 export const constans = {
-  API_URL: 'http://nerdistry.pl:3000/api/all',
+  API_URL: 'https://air-condition-cors-proxy.herokuapp.com/station/findAll',
   STATIONS_API_URL: 'http://nerdistry.pl:3000/api/getIndex/',
 };
 
 export const links = {
-  GITHUB: 'https://github.com/DarekMazur',
+  GITHUB: 'https://air-condition-cors-proxy.herokuapp.com/aqindex/getIndex/',
 };
 
 export const language = {
