@@ -1,5 +1,5 @@
 {
-  "name": "air_condition",
+  "name": "smoggy_foggy",
   "version": "1.1.0",
   "description": "Current air condition status based on meteo stations in Poland",
   "main": "index.js",
