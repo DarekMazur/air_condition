@@ -120,6 +120,8 @@ module.exports = {
       background_color: '#ffffff',
       theme_color: '#A8E2F4',
       crossorigin: 'use-credentials',
+      inject: true,
+      fingerprints: true,
       includeDirectory: true,
       icons: [
         {
