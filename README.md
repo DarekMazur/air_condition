@@ -91,4 +91,4 @@ A quick look at the top-level files and directories in project.
 
 - style - added desktop view
 
-[app]: https://optimistic-hoover-b823d7.netlify.app/
+[app]: https://smoggyfoggy.nerdistry.pl/
