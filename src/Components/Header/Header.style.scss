@@ -13,3 +13,13 @@
     font-size: 4rem;
   }
 }
+
+@media (min-width: 700px) {
+  .header {
+    justify-content: center;
+
+    &__title {
+      margin-top: 0;
+    }
+  }
+}

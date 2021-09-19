@@ -4,3 +4,11 @@
     margin: auto;
   }
 }
+
+@media (min-width: 700px) {
+  .main {
+    &__wrapper {
+      width: 50%;
+    }
+  }
+}

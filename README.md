@@ -6,7 +6,7 @@
   SmoggyFoggy
 </h1>
 
-## Version: 0.8.2
+## Version: 0.9.0
 
 Current version is design for mobile. Desktop layout will be implement in next stage.
 
@@ -80,7 +80,13 @@ A quick look at the top-level files and directories in project.
 ## Changelog
 
 **0.8.2**
-* added dynamic cache to expand offline accessibility
-* change error message
+
+- added dynamic cache to expand offline accessibility
+- change error message
+
+**0.9.0**
+
+- bugfix - displaying actual data if online
+- bugfix - install PWA
 
 [app]: https://optimistic-hoover-b823d7.netlify.app/

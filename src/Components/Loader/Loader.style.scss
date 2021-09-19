@@ -28,3 +28,11 @@
     width: 80%;
   }
 }
+
+@media (min-width: 700px) {
+  .loader {
+    &__image {
+      width: 40%;
+    }
+  }
+}

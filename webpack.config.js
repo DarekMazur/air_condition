@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -137,29 +136,5 @@ module.exports = {
         },
       ],
     }),
-    // new FaviconsWebpackPlugin({
-    //   logo: './src/assets/icons/icon.png',
-    //   mode: 'webapp',
-    //   favicons: {
-    //     appName: 'Smoggy Foggy',
-    //     appShortName: 'Smoggy Foggy',
-    //     appDescription: 'Check air quality in your area',
-    //     developerName: 'Darek Mazur',
-    //     background: '#ffffff',
-    //     theme_color: '#A8E2F4',
-    //     display: 'standalone',
-    //     orientation: 'portrait',
-    //     icons: {
-    //       android: true,
-    //       appleIcon: true,
-    //       appleStartup: true,
-    //       coast: true,
-    //       favicons: true,
-    //       firefox: true,
-    //       windows: true,
-    //       yandex: true,
-    //     },
-    //   },
-    // }),
   ],
 };

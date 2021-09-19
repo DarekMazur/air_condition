@@ -6,3 +6,11 @@
     margin-right: 1.5rem;
   }
 }
+
+@media (min-width: 700px) {
+  .header {
+    &__logo {
+      margin-top: 0;
+    }
+  }
+}
